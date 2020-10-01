@@ -49,16 +49,17 @@ def validate_url(address, url):
                         new_h1 = h1.text
                         lower_h1 = new_h1.lower()
                         new_title = ffdriver.title
+                        lower_title = new_title.lower()
                         print(f"title = {new_title}")
                         print(f"h1 = {new_h1}")
                         print(f"lower_h1 = {lower_h1}")
 
-                        if lower_h1 == "unfortunately, the link that you’ve used is not valid." or lower_h1 == "запрашиваемая страница не найдена":
+                        if lower_h1 == "unfortunately, the link that you’ve used is not valid." or lower_h1 == "запрашиваемая страница не найдена" or lower_h1 == "404":
                             f = open("spider_log.txt", "a")
                             f.write(f"address: {address} broken url: {url}\n")
                             f.close()
                             print(f"address: {address} broken url: {url}")
-                        elif ffdriver.title == "Кэшбэк сервис LetyShops. Возвращай деньги за покупки обратно":
+                        elif lower_title == "кэшбэк сервис letyshops. возвращай деньги за покупки обратно":
                             f = open("spider_log.txt", "a")
                             f.write(f"address: {address} broken url: {url}\n")
                             f.close()
