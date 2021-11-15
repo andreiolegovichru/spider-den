@@ -1,0 +1,10 @@
+.idea/
+all_hrefs.txt
+all_hrefs2.txt
+error.log
+geckodriver.log
+local_404.log
+request.log
+status_codes.txt
+venv/
+
